@@ -12,7 +12,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.ts$/,
-            exclude: /node_modules|\.d\.ts$|__mocks__/,
+            exclude: /node_modules/,
             use: [{
                 loader: 'babel-loader'
             }]
@@ -26,8 +26,7 @@ module.exports = {
     output: {
         publicPath: '/',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
-        filename: '[name].[contenthash].js'
+        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin(),
@@ -36,23 +35,14 @@ module.exports = {
     optimization: {
         splitChunks: {
             cacheGroups: {
-                vendor: {
-                    name: 'node_vendors',
-                    test: /[\\/]node_modules[\\/]/,
-                    chunks: 'all'
-                },
                 common: {
                     name: 'common',
-                    test: /[\\/]src[\\/]/,
                     chunks: 'all',
                     minSize: 0,
                     minChunks: 2
                 }
             }
         },
-        moduleIds: 'deterministic',
-        runtimeChunk: {
-            name: 'manifest'
-        }
+        moduleIds: 'deterministic'
     }
 };

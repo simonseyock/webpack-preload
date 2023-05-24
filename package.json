@@ -1,10 +1,13 @@
 {
   "scripts": {
+    "start": "http-server dist/",
     "build": "webpack --config webpack.js"
   },
   "devDependencies": {
+    "@principalstudio/html-webpack-inject-preload": "^1.2.7",
     "babel-loader": "^9.1.2",
     "html-webpack-plugin": "^5.5.1",
+    "http-server": "^14.1.1",
     "resource-hints-webpack-plugin": "^0.0.2",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1"
