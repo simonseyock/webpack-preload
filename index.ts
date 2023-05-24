@@ -12,5 +12,6 @@ if ('serviceWorker' in navigator && typeof window !== 'undefined') {
             {
                 scope: '/'
             }
-        );
+        )
+        .then(registration => registration.update());
 }
